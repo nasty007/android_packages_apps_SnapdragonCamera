@@ -787,10 +787,6 @@ public class CameraSettings {
                     touchAfAec, mParameters.getSupportedTouchAfAec());
         }
 
-        if (!mParameters.isPowerModeSupported() && powerMode != null) {
-            removePreference(group, powerMode.getKey());
-        }
-
         if (selectableZoneAf != null) {
             filterUnsupportedOptions(group,
                     selectableZoneAf, mParameters.getSupportedSelectableZoneAf());

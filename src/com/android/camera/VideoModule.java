@@ -845,18 +845,6 @@ public class VideoModule implements CameraModule,
             mMaxVideoDurationInMs = 60000 * minutes;
         }
 
-        if(mParameters.isPowerModeSupported()) {
-            String powermode = mPreferences.getString(
-                    CameraSettings.KEY_POWER_MODE,
-                    mActivity.getString(R.string.pref_camera_powermode_default));
-            Log.v(TAG, "read videopreferences power mode =" +powermode);
-            String old_mode = mParameters.getPowerMode();
-            if(!old_mode.equals(powermode) && mPreviewing)
-                mRestartPreview = true;
-
-            mParameters.setPowerMode(powermode);
-        }
-
         // Set wavelet denoise mode
         if (mParameters.getSupportedDenoiseModes() != null) {
             String denoise = mPreferences.getString(CameraSettings.KEY_DENOISE,
